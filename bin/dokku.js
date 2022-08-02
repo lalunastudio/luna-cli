@@ -27,6 +27,7 @@ jobs:
     - name: Deploy to dokku
       uses: dokku/github-action@master
       with:
+        branch: main
         git_remote_url: 'ssh://dokku@${ssh.split('@')[1]}/${app}'
         ssh_private_key: \${{ secrets.SSH_PRIVATE_KEY }}
 
