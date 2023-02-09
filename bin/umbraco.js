@@ -4,7 +4,7 @@ import { getSetting } from './settings.js';
 
 // Upload database and files to live server
 export const uploadUmbracoData = async () => {
-  const { res } = await inquirer.prompt([
+  const test = await inquirer.prompt([
     {
       message: 'Are you sure you want to upload and overwrite live data?',
       name: 'confirm',
@@ -12,7 +12,8 @@ export const uploadUmbracoData = async () => {
     },
   ]);
 
-  if (res.confirm) {
+  
+  if (test.confirm) {
     // Create folders on server
     try {
       call(`ssh ${getSetting('ssh')} mkdir -p /mnt/${getSetting('volume')}/${getSetting('dokkuApp')}/Data`);
